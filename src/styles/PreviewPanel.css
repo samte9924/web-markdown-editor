@@ -1,0 +1,15 @@
+.preview-panel {
+  padding: 2rem;
+
+  white-space: pre-wrap;
+}
+
+.preview-panel blockquote {
+  padding-left: 1.5em;
+  border-left: 2px solid #ccc;
+}
+
+.preview-panel pre {
+  padding-left: 1em;
+  background-color: #f4f4f4;
+}

@@ -1,0 +1,13 @@
+.sidebar {
+  width: 12rem;
+
+  background: var(--color-bg-muted);
+
+  overflow: hidden;
+  transition: width 0.3s ease, visibility 0.3s ease;
+}
+
+.sidebar.collapsed {
+  width: 0;
+  visibility: hidden;
+}
