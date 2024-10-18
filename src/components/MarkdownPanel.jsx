@@ -1,6 +1,8 @@
+import { useDocument } from "../hooks/useDocument";
 import "../styles/MarkdownPanel.css";
 
 export default function MarkdownPanel({ userInput, onChange }) {
+  const { setDocContent } = useDocument();
   const handleKeyDown = (e) => {
     if (e.key === "Tab") {
       // Prevent tab key from focus on a different element
@@ -13,6 +15,7 @@ export default function MarkdownPanel({ userInput, onChange }) {
         "    " +
         userInput.slice(selectionEnd);
       onChange(newText);
+      setDocContent(newText);
       setTimeout(() => {
         e.target.selectionStart = e.target.selectionEnd = selectionStart + 4; // Posiziona il cursore dopo i nuovi spazi
       }, 0);
