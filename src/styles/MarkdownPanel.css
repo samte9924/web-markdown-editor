@@ -4,6 +4,7 @@ textarea {
   resize: none;
 
   background: transparent;
+  color: inherit;
 
   padding: 2rem;
 

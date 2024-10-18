@@ -1,0 +1,27 @@
+.navbar {
+  height: 4rem;
+
+  display: flex;
+  align-items: center;
+
+  background: var(--color-bg-highlight);
+}
+
+.navbar .sidebar-status-button {
+  height: 100%;
+  width: 4rem;
+
+  border: none;
+  background: var(--color-bg-highlight);
+  color: inherit;
+
+  cursor: pointer;
+}
+
+.navbar .app-name {
+  font-size: 1.5rem;
+  letter-spacing: 0.2rem;
+  font-weight: 500;
+
+  margin-left: 2rem;
+}

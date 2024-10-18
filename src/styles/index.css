@@ -1,8 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap");
 
 :root {
-  font-family: "Roboto", sans-serif;
+  font-family: "Figtree", sans-serif;
+  font-optical-sizing: auto;
   font-weight: 400;
 
   /* Tema chiaro */
@@ -15,13 +17,17 @@
   --color-gray-light: #4a4a4a;
   --color-gray-hover: #232323;
 
-  --color-orange: #f0a04b;
+  --color-orange: #f38338;
   --color-orange-light: #f3b366;
-  --color-orange-hover: #d3883a;
+  --color-orange-hover: rgb(210, 124, 33);
 
   /* Altri colori comuni */
   --color-border-light: #e0e0e0;
   --color-shadow-light: rgba(0, 0, 0, 0.1);
+
+  --bg-code: #f5f5f5;
+  --text-code: #333;
+  --border-code: #ccc;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -47,6 +53,10 @@
   /* Altri colori comuni */
   --color-border-light: #555555;
   --color-shadow-light: rgba(255, 255, 255, 0.1);
+
+  --bg-code: #1e1e1e;
+  --text-code: #f8f8f2;
+  --border-code: #444;
 }
 
 *,
@@ -60,6 +70,8 @@
 body {
   background-color: var(--color-bg-light);
   color: var(--color-text-light);
+
+  transition: background-color ease-out 0.3s, color ease-out 0.3s;
 }
 
 #root {
@@ -71,4 +83,11 @@ body {
   height: 100%;
 
   display: flex;
+}
+
+.outlet-wrapper {
+  flex: 1;
+
+  display: grid;
+  grid-template-rows: auto 1fr;
 }

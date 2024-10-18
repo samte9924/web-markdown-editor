@@ -1,13 +1,85 @@
 .sidebar {
-  width: 12rem;
+  width: 15rem;
+  height: 100%;
 
   background: var(--color-bg-muted);
 
+  padding: 1.5rem;
+
   overflow: hidden;
-  transition: width 0.3s ease, visibility 0.3s ease;
+  transition: width 0.3s ease, padding 0.3s ease;
 }
 
 .sidebar.collapsed {
   width: 0;
-  visibility: hidden;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.sidebar .header,
+.sidebar .new-document-button,
+.documents-list .document {
+  flex-shrink: 0;
+  min-width: 12rem;
+  max-width: 12rem;
+}
+
+.sidebar .header {
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+
+  width: 100%;
+
+  text-transform: uppercase;
+}
+
+.sidebar .new-document-button {
+  width: 100%;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 0.3rem;
+  border: none;
+  background: var(--color-orange);
+  color: white;
+
+  padding: 0.75rem;
+  margin: 1rem auto;
+
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: inherit;
+
+  cursor: pointer;
+}
+
+.sidebar .new-document-button:hover {
+  background: var(--color-orange-hover);
+}
+
+.documents-list .document {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+
+  gap: 1rem;
+}
+
+.documents-list .document .document-info {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.documents-list .document .document-creation {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.documents-list .document .document-name {
+  font-weight: 500;
 }

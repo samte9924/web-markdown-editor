@@ -17,7 +17,7 @@ export default function PreviewPanel({ userInput }) {
         // Safely inject markup inside the panel as html
         previewRef.current.innerHTML = cleanMarkup;
       }
-    }, 500);
+    }, 1000);
 
     return () => clearTimeout(delay);
   }, [userInput]);

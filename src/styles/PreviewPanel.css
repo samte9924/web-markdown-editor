@@ -1,7 +1,13 @@
 .preview-panel {
+  font-family: "Merriweather", serif;
   padding: 2rem;
 
+  border-left: 2px solid var(--color-bg-highlight);
+
   white-space: pre-wrap;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
 .preview-panel blockquote {
@@ -11,5 +17,15 @@
 
 .preview-panel pre {
   padding-left: 1em;
-  background-color: #f4f4f4;
+
+  background: var(--bg-code);
+  border: 1px solid var(--border-code);
+  border-radius: 0.5rem;
+
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.preview-panel code {
+  color: var(--text-code);
 }
