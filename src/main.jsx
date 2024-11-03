@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import RootLayout from "./RootLayout";
 import "./styles/index.css";
 import { DocumentProvider } from "./contexts/DocumentContext";
+import DocumentPage from "./pages/DocumentPage";
 
 const router = createBrowserRouter([
   {
@@ -11,7 +12,7 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       { path: "/", element: <Home /> },
-      { path: "/:documentId", element: <div>Document</div> },
+      { path: "/:documentId", element: <DocumentPage /> },
     ],
   },
 ]);

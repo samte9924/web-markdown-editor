@@ -1,42 +1,26 @@
 import { GoPlus } from "react-icons/go";
-import "../styles/Sidebar.css";
 import { IoMdDocument } from "react-icons/io";
 import { useEffect, useState } from "react";
 import { HiDocumentCheck } from "react-icons/hi2";
-import { useDocument } from "../hooks/useDocument";
-import { v4 as uuidv4 } from "uuid";
+import "../styles/Sidebar.css";
+import { useNavigate, useParams } from "react-router-dom";
+import { createDocument, getDocuments } from "../utils/document";
 
 export default function Sidebar({ isOpen }) {
-  const { docContent } = useDocument();
+  const { documentId } = useParams();
   const [showForm, setShowForm] = useState(false);
   const [docName, setDocName] = useState("");
 
-  const [documents, setDocuments] = useState(
-    localStorage.getItem("documents")
-      ? JSON.parse(localStorage.getItem("documents"))
-      : []
-  );
+  const navigate = useNavigate();
 
-  const createDocument = () => {
-    const localDocuments = localStorage.getItem("documents")
-      ? JSON.parse(localStorage.getItem("documents"))
-      : [];
-    const now = Date.now();
+  const [documents, setDocuments] = useState(getDocuments());
 
-    const newDocument = {
-      id: uuidv4(),
-      name: docName + ".md",
-      createdAt: now,
-      content: docContent,
-    };
-
-    localDocuments.push(newDocument);
-    localStorage.setItem("documents", JSON.stringify(localDocuments));
-
+  const handleSubmit = () => {
+    const result = createDocument(docName);
     setDocName("");
     setShowForm(false);
-    setDocuments(localDocuments);
-    console.log(localDocuments);
+    setDocuments([...documents, result]);
+    console.log(documents);
   };
 
   return (
@@ -47,13 +31,18 @@ export default function Sidebar({ isOpen }) {
         <span>New Document</span>
       </button>
       <div className="documents-list">
-        <div className="document">
-          <IoMdDocument size={24} />
-          <div className="document-info">
-            <span className="document-creation">15 Maggio 2024</span>
-            <span className="document-name">welcome.md</span>
+        {documents.map((doc) => (
+          <div
+            key={doc.id}
+            className={`document ${doc.id === documentId ? "selected" : ""}`}
+            onClick={() => navigate(`/${doc.id}`)}
+          >
+            <IoMdDocument size={24} />
+            <div className="document-info">
+              <span className="document-name">{doc.name}</span>
+            </div>
           </div>
-        </div>
+        ))}
       </div>
       {showForm && (
         <div className="new-document-form">
@@ -63,7 +52,7 @@ export default function Sidebar({ isOpen }) {
             value={docName}
             onChange={(e) => setDocName(e.target.value)}
           />
-          <button onClick={createDocument}>
+          <button onClick={handleSubmit}>
             <HiDocumentCheck size={24} />
           </button>
         </div>

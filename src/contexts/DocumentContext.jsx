@@ -3,10 +3,10 @@ import { createContext, useState } from "react";
 export const DocumentContext = createContext();
 
 export function DocumentProvider({ children }) {
-  const [docContent, setDocContent] = useState("");
+  const [currentDocument, setCurrentDocument] = useState("");
 
   return (
-    <DocumentContext.Provider value={{ docContent, setDocContent }}>
+    <DocumentContext.Provider value={{ currentDocument, setCurrentDocument }}>
       {children}
     </DocumentContext.Provider>
   );

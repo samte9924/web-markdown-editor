@@ -60,6 +60,13 @@
   background: var(--color-orange-hover);
 }
 
+.documents-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.5rem;
+}
+
 .documents-list .document {
   display: flex;
   align-items: center;
@@ -67,6 +74,17 @@
   width: 100%;
 
   gap: 1rem;
+  padding: 0.2rem;
+
+  cursor: pointer;
+}
+
+.documents-list .document:hover {
+  background: var(--color-bg-light);
+}
+
+.documents-list .document.selected {
+  background: var(--color-orange-light);
 }
 
 .documents-list .document .document-info {
