@@ -3,25 +3,62 @@
 
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   background: var(--color-bg-highlight);
+
+  padding: 0 2rem;
 }
 
-.navbar .sidebar-status-button {
-  height: 100%;
-  width: 4rem;
+.navbar .current-document {
+  display: flex;
+  align-items: center;
 
+  gap: 2rem;
+}
+
+.navbar .current-document span {
+  font-size: 1.5rem;
+  letter-spacing: 0.2rem;
+  font-weight: 500;
+}
+
+.navbar .current-document button {
+  height: 2rem;
+  width: 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: red;
+  color: white;
   border: none;
-  background: var(--color-bg-highlight);
-  color: inherit;
+  border-radius: 0.3rem;
 
   cursor: pointer;
 }
 
-.navbar .current-document-name {
-  font-size: 1.5rem;
-  letter-spacing: 0.2rem;
-  font-weight: 500;
+.navbar .current-document button:hover {
+  background: rgb(206, 0, 0);
+}
 
-  margin-left: 2rem;
+.navbar .download {
+  display: flex;
+  align-items: center;
+
+  border: none;
+  border-radius: 0.2rem;
+  background: var(--color-orange);
+  color: white;
+
+  gap: 0.5rem;
+  padding: 0.3rem;
+
+  cursor: pointer;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.navbar .download:hover {
+  background: var(--color-orange-hover);
 }

@@ -1,0 +1,6 @@
+.editor-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  background: var(--color-bg-light);
+}

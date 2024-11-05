@@ -31,4 +31,11 @@ export const getDocumentById = (docId) => {
 
 export const updateDocument = () => {};
 
-export const deleteDocument = () => {};
+export const deleteDocument = (docId) => {
+  const localDocuments = getDocuments();
+
+  const updatedDocuments = localDocuments.filter((doc) => doc.id !== docId);
+  localStorage.setItem("documents", JSON.stringify(updatedDocuments));
+
+  return updatedDocuments;
+};

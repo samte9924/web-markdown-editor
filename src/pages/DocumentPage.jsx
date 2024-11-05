@@ -3,6 +3,7 @@ import MarkdownPanel from "../components/MarkdownPanel";
 import PreviewPanel from "../components/PreviewPanel";
 import { useEffect, useState } from "react";
 import { getDocumentById } from "../utils/document";
+import "../styles/DocumentPage.css";
 
 export default function DocumentPage() {
   const { documentId } = useParams();
