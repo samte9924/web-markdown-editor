@@ -1,16 +1,20 @@
 import { useEffect, useRef } from "react";
 import { marked } from "marked";
 import DOMPurify from "dompurify";
+import { BsArrowsExpandVertical } from "react-icons/bs";
 import "../styles/PreviewPanel.css";
 
-export default function PreviewPanel({ userInput }) {
+export default function PreviewPanel({ userInput, toggleEditor }) {
   const previewRef = useRef(null);
 
   useEffect(() => {
-    const rawMarkup = marked.parse(userInput, { gfm: true, breaks: true });
+    marked.use({ gfm: true, breaks: true });
 
-    // Sanitize markup to prevent XSS attacks
+    // Parse input and sanitize markup to prevent XSS attacks
+    const rawMarkup = marked.parse(userInput);
     const cleanMarkup = DOMPurify.sanitize(rawMarkup);
+
+    //console.log(cleanMarkup);
 
     if (previewRef.current) {
       // Safely inject markup inside the panel as html
@@ -18,5 +22,15 @@ export default function PreviewPanel({ userInput }) {
     }
   }, [userInput]);
 
-  return <div className="preview-panel" ref={previewRef}></div>;
+  return (
+    <div className="preview-panel">
+      <div className="panel-header">
+        <span>Preview</span>
+        <button title="Espandi" onClick={() => toggleEditor((prev) => !prev)}>
+          <BsArrowsExpandVertical size={28} />
+        </button>
+      </div>
+      <div ref={previewRef} className="markdown-content"></div>
+    </div>
+  );
 }

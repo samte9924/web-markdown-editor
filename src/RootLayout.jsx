@@ -5,7 +5,7 @@ import { useState } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 export default function RootLayout() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const changeSidebarStatus = () => {
     setIsSidebarOpen((prevOpen) => !prevOpen);

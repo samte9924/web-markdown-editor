@@ -6,6 +6,7 @@
   justify-content: space-between;
 
   background: var(--color-bg-highlight);
+  border-bottom: 1px solid var(--color-border-light);
 
   padding: 0 2rem;
 }

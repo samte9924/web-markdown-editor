@@ -1,4 +1,44 @@
 .preview-panel {
+  display: grid;
+  grid-template-rows: 2.5rem 1fr;
+
+  width: 100%;
+  height: 100%;
+}
+
+.preview-panel .panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: var(--color-bg-highlight);
+  border-bottom: 1px solid var(--color-border-light);
+  border-left: 1px solid var(--color-border-light);
+
+  padding: 0 1rem;
+
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.preview-panel .panel-header button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: none;
+  border: none;
+  border-radius: 0.2rem;
+
+  padding: 0.1rem 0.2rem;
+
+  cursor: pointer;
+}
+.preview-panel .panel-header button:hover {
+  background: var(--color-border-light);
+}
+
+.markdown-content {
   font-family: "Merriweather", serif;
   padding: 2rem;
 
@@ -8,14 +48,16 @@
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-word;
+
+  overflow-y: auto;
 }
 
-.preview-panel blockquote {
+.markdown-content blockquote {
   padding-left: 1.5em;
   border-left: 2px solid #ccc;
 }
 
-.preview-panel pre {
+.markdown-content pre {
   padding-left: 1em;
 
   background: var(--bg-code);
@@ -26,6 +68,6 @@
   padding-bottom: 1rem;
 }
 
-.preview-panel code {
+.markdown-content code {
   color: var(--text-code);
 }
