@@ -1,9 +1,9 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { getDocumentById } from "../utils/document";
+import { getDocumentById, updateDocument } from "../utils/document";
 import { useEffect, useState } from "react";
-import "../styles/Navbar.css";
-import { IoMdCloudDownload } from "react-icons/io";
+import { IoIosSave, IoMdCloudDownload } from "react-icons/io";
 import { IoCloseOutline } from "react-icons/io5";
+import "../styles/Navbar.css";
 
 export default function Navbar() {
   const { documentId } = useParams();

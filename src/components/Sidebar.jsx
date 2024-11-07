@@ -24,7 +24,7 @@ export default function Sidebar({ isOpen, setIsOpen }) {
   const [documents, setDocuments] = useState(getDocuments());
 
   const handleSubmit = () => {
-    const result = createDocument(docName);
+    const result = createDocument(docName || "untitled");
     setDocName("");
     setShowForm(false);
     setDocuments([...documents, result]);

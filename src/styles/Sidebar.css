@@ -73,8 +73,6 @@
 }
 
 .sidebar .new-document-button {
-  width: 100%;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -174,6 +172,7 @@
 }
 
 .new-document-form input {
+  width: 100%;
 }
 
 .new-document-form button {

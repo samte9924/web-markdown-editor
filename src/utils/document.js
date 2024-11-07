@@ -29,7 +29,16 @@ export const getDocumentById = (docId) => {
   return localDocuments.filter((doc) => doc.id === docId)[0];
 };
 
-export const updateDocument = () => {};
+export const updateDocument = (docId, updatedData) => {
+  const localDocuments = getDocuments();
+
+  const updatedDocuments = localDocuments.map((doc) =>
+    doc.id === docId ? { ...doc, ...updatedData } : doc
+  );
+  localStorage.setItem("documents", JSON.stringify(updatedDocuments));
+
+  return updatedDocuments;
+};
 
 export const deleteDocument = (docId) => {
   const localDocuments = getDocuments();

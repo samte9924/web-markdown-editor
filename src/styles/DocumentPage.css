@@ -4,3 +4,51 @@
 
   background: var(--color-bg-light);
 }
+
+.editor-wrapper .save-button {
+  position: absolute;
+  left: 50%;
+  bottom: 10%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+  align-items: center;
+
+  border: none;
+  border-radius: 5rem;
+  color: white;
+  background: green;
+
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+
+  font-size: 1rem;
+  font-weight: 500;
+
+  cursor: pointer;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+.editor-wrapper .save-button:hover {
+  background: rgb(0, 94, 0);
+}
+.editor-wrapper .save-button.bounce-in-up {
+  animation: bounceInUp 0.4s cubic-bezier(0.215, 0.61, 0.355, 0.5) forwards;
+}
+
+@keyframes bounceInUp {
+  0% {
+    transform: translateX(-50%) translateY(100%);
+    opacity: 0;
+  }
+  60% {
+    transform: translateX(-50%) translateY(-20%);
+    opacity: 1;
+  }
+  80% {
+    transform: translateX(-50%) translateY(10%);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+}

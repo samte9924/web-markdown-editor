@@ -43,13 +43,12 @@
   background: rgb(206, 0, 0);
 }
 
-.navbar .download {
+.navbar .document-actions button {
   display: flex;
   align-items: center;
 
   border: none;
   border-radius: 0.2rem;
-  background: var(--color-orange);
   color: white;
 
   gap: 0.5rem;
@@ -59,6 +58,16 @@
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
 }
 
+.navbar .download {
+  background: var(--color-orange);
+}
 .navbar .download:hover {
   background: var(--color-orange-hover);
+}
+
+.navbar .document-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 1rem;
 }
