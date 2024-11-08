@@ -34,6 +34,9 @@
 .editor-wrapper .save-button.bounce-in-up {
   animation: bounceInUp 0.4s cubic-bezier(0.215, 0.61, 0.355, 0.5) forwards;
 }
+.editor-wrapper .save-button.bounce-out-down {
+  animation: bounceOutDown 0.4s cubic-bezier(0.215, 0.61, 0.355, 0.5) forwards;
+}
 
 @keyframes bounceInUp {
   0% {
@@ -49,5 +52,22 @@
   }
   100% {
     transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes bounceOutDown {
+  0% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+  20% {
+    transform: translateX(-50%) translateY(10%);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-20%);
+  }
+  100% {
+    transform: translateX(-50%) translateY(100%);
+    opacity: 0;
   }
 }
