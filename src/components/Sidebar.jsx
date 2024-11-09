@@ -83,28 +83,32 @@ export default function Sidebar({ isOpen, setIsOpen }) {
               <span>Documento</span>
             </button>
 
-            <div className="documents-list">
-              {documents.map((doc) => (
-                <div
-                  key={doc.id}
-                  className={`document ${
-                    doc.id === documentId ? "selected" : ""
-                  }`}
-                  onClick={() => navigate(`/doc/${doc.id}`)}
-                >
-                  <div className="document-info">
-                    <IoMdDocument size={24} />
-                    <span className="document-name">{doc.name}</span>
-                  </div>
-                  <button
-                    onClick={(e) => handleDelete(e, doc.id)}
-                    className="delete-button"
+            {documents.length === 0 ? (
+              <i>Nessun documento trovato</i>
+            ) : (
+              <div className="documents-list">
+                {documents.map((doc) => (
+                  <div
+                    key={doc.id}
+                    className={`document ${
+                      doc.id === documentId ? "selected" : ""
+                    }`}
+                    onClick={() => navigate(`/doc/${doc.id}`)}
                   >
-                    <MdDeleteForever size={24} />
-                  </button>
-                </div>
-              ))}
-            </div>
+                    <div className="document-info">
+                      <IoMdDocument size={24} />
+                      <span className="document-name">{doc.name}</span>
+                    </div>
+                    <button
+                      onClick={(e) => handleDelete(e, doc.id)}
+                      className="delete-button"
+                    >
+                      <MdDeleteForever size={24} />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
             {showForm && (
               <div className="new-document-form">
                 <input

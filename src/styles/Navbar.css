@@ -16,7 +16,17 @@
   display: flex;
   align-items: center;
 
-  gap: 2rem;
+  gap: 1rem;
+}
+
+.navbar .current-document input {
+  width: 18ch;
+
+  border-radius: 0.5rem;
+  border: 2px solid var(--color-border-light);
+  padding: 0.2rem 0.6rem;
+
+  font-size: 1.5rem;
 }
 
 .navbar .current-document span {
@@ -26,14 +36,12 @@
 }
 
 .navbar .current-document button {
-  height: 2rem;
-  width: 2rem;
+  padding: 0.2rem;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  background: red;
   color: white;
   border: none;
   border-radius: 0.3rem;
@@ -41,8 +49,18 @@
   cursor: pointer;
 }
 
-.navbar .current-document button:hover {
+.navbar .current-document .close-doc-button {
+  background: red;
+}
+.navbar .current-document .close-doc-button:hover {
   background: rgb(206, 0, 0);
+}
+
+.navbar .current-document .save-doc-name-button {
+  background: green;
+}
+.navbar .current-document .save-doc-name-button:hover {
+  background: rgb(0, 103, 0);
 }
 
 .navbar .document-actions button {

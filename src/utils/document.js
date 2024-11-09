@@ -32,12 +32,15 @@ export const getDocumentById = (docId) => {
 export const updateDocument = (docId, updatedData) => {
   const localDocuments = getDocuments();
 
+  const updatedDoc = { ...getDocumentById(docId), ...updatedData };
+  console.log(updatedDoc);
+
   const updatedDocuments = localDocuments.map((doc) =>
-    doc.id === docId ? { ...doc, ...updatedData } : doc
+    doc.id === docId ? updatedDoc : doc
   );
   localStorage.setItem("documents", JSON.stringify(updatedDocuments));
 
-  return updatedDocuments;
+  return updatedDoc;
 };
 
 export const deleteDocument = (docId) => {

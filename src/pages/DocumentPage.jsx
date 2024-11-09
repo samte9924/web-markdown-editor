@@ -32,13 +32,11 @@ export default function DocumentPage() {
       setShowSaveButton(true);
       if (!timeoutRef.current) {
         timeoutRef.current = setTimeout(() => {
-          // remove enter animation
           saveButtonRef.current.classList.toggle("bounce-in-up");
           timeoutRef.current = null;
         }, 400);
       }
     } else if (userInput === savedContent && showSaveButton) {
-      // add leave animation
       saveButtonRef.current.classList.toggle("bounce-out-down");
       if (!timeoutRef.current) {
         timeoutRef.current = setTimeout(() => {
@@ -52,6 +50,14 @@ export default function DocumentPage() {
 
   const handleSave = () => {
     updateDocument(documentId, { content: userInput });
+    saveButtonRef.current.classList.toggle("bounce-out-down");
+    if (!timeoutRef.current) {
+      timeoutRef.current = setTimeout(() => {
+        saveButtonRef.current.classList.toggle("bounce-out-down");
+        setShowSaveButton(false);
+        timeoutRef.current = null;
+      }, 400);
+    }
     setSavedContent(userInput);
   };
 
