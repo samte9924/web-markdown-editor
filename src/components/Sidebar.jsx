@@ -1,6 +1,6 @@
 import { GoPlus } from "react-icons/go";
 import { IoMdDocument } from "react-icons/io";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { HiDocumentCheck } from "react-icons/hi2";
 import "../styles/Sidebar.css";
 import { useNavigate, useParams } from "react-router-dom";
@@ -11,9 +11,11 @@ import {
 } from "../utils/document";
 import { MdDeleteForever } from "react-icons/md";
 import { IoHomeOutline, IoMenuOutline } from "react-icons/io5";
+import { useDocument } from "../hooks/useDocument";
 
 export default function Sidebar({ isOpen, setIsOpen }) {
   const { documentId } = useParams();
+  const { currentDocument } = useDocument();
   const [showForm, setShowForm] = useState(false);
   const [docName, setDocName] = useState("");
 

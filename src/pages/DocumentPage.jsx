@@ -4,16 +4,15 @@ import PreviewPanel from "../components/PreviewPanel";
 import { useEffect, useRef, useState } from "react";
 import { getDocumentById, updateDocument } from "../utils/document";
 import { IoIosSave } from "react-icons/io";
+import { useDocument } from "../hooks/useDocument";
 import "../styles/DocumentPage.css";
 
 export default function DocumentPage() {
   const { documentId } = useParams();
-  const [savedContent, setSavedContent] = useState(
-    getDocumentById(documentId).content
-  );
-  const [userInput, setUserInput] = useState(
-    getDocumentById(documentId).content
-  );
+  const { currentDocument, setCurrentDocument } = useDocument();
+
+  const [savedContent, setSavedContent] = useState("");
+  const [userInput, setUserInput] = useState("");
   const [showSaveButton, setShowSaveButton] = useState(false);
 
   const [isEditorCollapsed, setIsEditorCollapsed] = useState(false);
@@ -22,8 +21,8 @@ export default function DocumentPage() {
   const saveButtonRef = useRef(null);
 
   useEffect(() => {
-    setUserInput(getDocumentById(documentId).content);
-  }, [documentId]);
+    setCurrentDocument(getDocumentById(documentId));
+  }, [documentId, setCurrentDocument]);
 
   const handleChange = (value) => {
     setUserInput(value);

@@ -5,9 +5,11 @@ import { IoIosSave, IoMdCloudDownload } from "react-icons/io";
 import { IoCloseOutline } from "react-icons/io5";
 import "../styles/Navbar.css";
 import { GoPencil } from "react-icons/go";
+import { useDocument } from "../hooks/useDocument";
 
 export default function Navbar() {
   const { documentId } = useParams();
+  const { currentDocument, setCurrentDocument } = useDocument();
   const [docName, setDocName] = useState("");
   const [isEditing, setIsEditing] = useState("");
 
@@ -15,11 +17,9 @@ export default function Navbar() {
 
   useEffect(() => {
     setDocName(
-      documentId
-        ? getDocumentById(documentId).name.replace(".md", "")
-        : "MDfier"
+      currentDocument ? currentDocument.name.replace(".md", "") : "MDfier"
     );
-  }, [documentId]);
+  }, [currentDocument]);
 
   const handleDownload = () => {
     const doc = getDocumentById(documentId);
@@ -65,14 +65,27 @@ export default function Navbar() {
           </>
         ) : (
           <>
-            <span onClick={() => setIsEditing(true)}>{docName}</span>
-            <button
-              onClick={() => navigate("/")}
-              title="Chiudi"
-              className="close-doc-button"
+            <span
+              onClick={() => {
+                if (documentId) {
+                  setIsEditing(true);
+                }
+              }}
             >
-              <IoCloseOutline size={24} />
-            </button>
+              {docName}
+            </span>
+            {documentId && (
+              <button
+                onClick={() => {
+                  setCurrentDocument(null);
+                  navigate("/");
+                }}
+                title="Chiudi"
+                className="close-doc-button"
+              >
+                <IoCloseOutline size={24} />
+              </button>
+            )}
           </>
         )}
       </div>
